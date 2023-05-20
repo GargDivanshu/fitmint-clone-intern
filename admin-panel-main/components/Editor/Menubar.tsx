@@ -23,7 +23,7 @@ const MenuBar = ({ editor }: {
     }
 
     return (
-        <div className='bg-transparent w-full h-2'>
+        <div className='bg-transparent w-full h-2 px-2'>
             <button
                 onClick={(e) => {
                     e.preventDefault()
@@ -36,7 +36,7 @@ const MenuBar = ({ editor }: {
                         .toggleBold()
                         .run()
                 }
-                className={`rounded-md p-2 m-1 text-sm hover:bg-[#F3F4F6] ${editor.isActive('bold') ? 'is-active' : ''}`}
+                className={`rounded-md p-1 m-0.5 text-sm hover:bg-[#F3F4F6] ${editor.isActive('bold') ? 'is-active' : ''}`}
             >
                 <FiBold
                     fontSize={20}
@@ -55,7 +55,7 @@ const MenuBar = ({ editor }: {
                         .toggleItalic()
                         .run()
                 }
-                className={`rounded-md p-2 m-1 hover:bg-[#F3F4F6] ${editor.isActive('italic') ? 'is-active' : ''}`}
+                className={`rounded-md p-1 m-1 hover:bg-[#F3F4F6] ${editor.isActive('italic') ? 'is-active' : ''}`}
             >
                 <FiItalic
                     fontSize={20}
@@ -73,7 +73,7 @@ const MenuBar = ({ editor }: {
                         .toggleStrike()
                         .run()
                 }
-                className={`rounded-md  p-2 m-1  hover:bg-[#F3F4F6] ${editor.isActive('strike') ? 'is-active' : ''}`}
+                className={`rounded-md  p-1 m-1  hover:bg-[#F3F4F6] ${editor.isActive('strike') ? 'is-active' : ''}`}
             >
                 <GrStrikeThrough
                     fontSize={20}
@@ -81,7 +81,7 @@ const MenuBar = ({ editor }: {
             </button>
 
             <button
-                className=" rounded-md p-2 m-1 hover:bg-[#F3F4F6]"
+                className=" rounded-md p-1 m-1 hover:bg-[#F3F4F6]"
                 onClick={(e) => {
                     e.preventDefault()
                     editor.chain().focus().undo().run()
@@ -99,7 +99,7 @@ const MenuBar = ({ editor }: {
                 />
             </button>
             <button
-                className=" rounded-md p-2 m-1 hover:bg-[#F3F4F6]"
+                className=" rounded-md p-1 m-1 hover:bg-[#F3F4F6]"
                 onClick={(e) => {
                     e.preventDefault()
                     editor.chain().focus().redo().run()
@@ -122,7 +122,7 @@ const MenuBar = ({ editor }: {
                     e.preventDefault()
                     editor.chain().focus().toggleBulletList().run()
                 }}
-                className={` rounded-md  p-2 m-1  hover:bg-[#F3F4F6] ${editor.isActive('bulletList') ? 'is-active' : ''}`}
+                className={` rounded-md  p-1 m-1  hover:bg-[#F3F4F6] ${editor.isActive('bulletList') ? 'is-active' : ''}`}
             >
                 <MdFormatListBulleted
                     fontSize={20}
@@ -133,7 +133,7 @@ const MenuBar = ({ editor }: {
                     e.preventDefault()
                     editor.chain().focus().toggleOrderedList().run()
                 }}
-                className={` rounded-md  p-2 m-1  hover:bg-[#F3F4F6] ${editor.isActive('orderedList') ? 'is-active' : ''}`}
+                className={` rounded-md  p-1 m-1  hover:bg-[#F3F4F6] ${editor.isActive('orderedList') ? 'is-active' : ''}`}
             >
                 <VscListOrdered
                     fontSize={20}
@@ -150,7 +150,7 @@ export default function TipTapEditor({ placeholder }: {
         onUpdate: (text => console.log(text)),
         editorProps: {
             attributes: {
-                class: "focus:outline-none mt-6 px-6 list-disc w-full static max-h-full",
+                class: "focus:outline-none mt-6 px-4 list-disc w-full static max-h-full",
             }
         },
         extensions: [
@@ -184,13 +184,13 @@ export default function TipTapEditor({ placeholder }: {
     console.log(editor?.getJSON())
     return (
         <>
-        <div className="flex flex-col rounded-md border-[#D1D5DB] border-[1px] px-2">
+        <div className="flex flex-col rounded-md border-[#D1D5DB] border-[1px] px-1">
             <MenuBar
                 editor={editor}
             />
             
                 <EditorContent
-                    className="border-none mt-[40px] h-[70px] overflow-y-auto"
+                    className="scrollable-content border-none mt-[25px] h-[70px] overflow-y-auto"
                     editor={editor}
                 />
             </div>
